@@ -1,0 +1,46 @@
+<html>
+
+<head>
+<title>Admin Home</title>
+
+<style>
+
+
+  .card{
+    border: 1px solid black;
+    width:300px;
+
+  }
+</style>
+
+</head>
+
+
+<body>
+  {% if contact %}
+
+{% for contact in contact %}
+
+<div class = "card">
+  <center>
+<b>{{ contact.name }}</b>
+</center>
+<p>{{ contact.message }}</p>
+<br>
+<b style = "margin-right: 2px; color:blue;">{{ contact.time }}</b>
+
+</div>
+<br><br>
+
+{% endfor %}
+{% else %}
+<center>
+<h4>No messages yet...</h4>
+</center>
+{% endif %}
+
+
+</body>
+
+
+</html>

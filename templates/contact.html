@@ -1,0 +1,58 @@
+<html>
+<head><title>Contact Form</title>
+
+<style>
+
+.card{
+  border: 1px solid black;
+  width:300px;
+
+}
+
+
+</style>
+
+</head>
+<body>
+<form method = "POST">
+{% csrf_token %}
+
+{{ form.as_p }}
+
+<input type = "submit" value = "submit" name=  "submit">
+
+</form>
+
+<hr>
+{% if contct %}
+
+{% for contact in contct %}
+<center>
+<div class = "card">
+<b>{{ contact.name }}</b>
+<p>{{ contact.message }}</p>
+<br>
+<b style = "margin-right: 2px; color:blue;">{{ contact.time }}</b>
+
+{% if contact.status == 0 %}
+<small style = "color:red;">Not seen</small>
+{% else %}
+<small style = "color: green; ">Seen</small>
+
+
+{% endif %}
+</div>
+</center>
+<br>
+<br>
+
+
+{% endfor %}
+{% else %}
+<center>
+<h4>No messages yet...</h4>
+</center>
+{% endif %}
+
+</body>
+</html>

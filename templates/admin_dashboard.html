@@ -1,0 +1,22 @@
+<html>
+
+<head>
+<title>Admin Dashboard</title>
+
+</head>
+
+<body>
+
+<form method = "post">
+
+{% csrf_token %}
+
+<input type = "hidden" name = 'next' value = "{{ next }}">
+{{ form.as_p }}
+<button type = "submit">Go to admin dashboard</button>
+
+</form>
+
+</body>
+
+</html>
